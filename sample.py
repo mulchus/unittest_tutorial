@@ -19,8 +19,19 @@ def get_log_two(a: int) -> float:
     return math.log2(a)
 
 
-class TestAddTwoNumbers(unittest.TestCase):
+class TestLogTwo(unittest.TestCase):
     @patch("math.log2")
     def test_add_two_numbers(self, mock_get_log_two):
         mock_get_log_two.return_value = 0
         assert get_log_two(5) == 0
+
+
+def get_sum(a: int, b: int) -> int:
+    return a + b
+
+
+class TestAddTwoNumbers(unittest.TestCase):
+    @patch("sample.get_sum")
+    def test_get_sum(self, mock_get_sum):
+        mock_get_sum.return_value = 100
+        assert get_sum(5, 6) == 100

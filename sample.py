@@ -15,6 +15,11 @@ class TestFunction(unittest.TestCase):
         assert get_random_int() == 10
 
 
+def test_get_random_int():
+    with patch("random.randint", return_value=5):
+        assert get_random_int() == 5
+
+
 def get_log_two(a: int) -> float:
     return math.log2(a)
 
